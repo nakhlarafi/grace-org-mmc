@@ -43,7 +43,7 @@ class NlEncoder(nn.Module):
         nodeem = torch.cat([nodeem, inputtext.unsqueeze(-1).float()], dim=-1)
         x = nodeem
         lineem = self.token_embedding1(linenode)
-        modification = modification.float() / torch.max(modification)
+        # modification = modification.float() / torch.max(modification)
         lineem = torch.cat([lineem, modification.unsqueeze(-1).float()], dim=-1)
         x = torch.cat([x, lineem], dim=1)
         for trans in self.transformerBlocks:
