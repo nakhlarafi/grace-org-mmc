@@ -255,6 +255,7 @@ class SumDataset(data.Dataset):
         maxl2 = 0
         error = 0
         Modification = []
+        Churn = []
         error1 = 0
         error2 = 0
         correct = 0
@@ -286,6 +287,7 @@ class SumDataset(data.Dataset):
             texta = []
             textb = []
             modi = []
+            ch = []
             linenodes = []
             linetypes = []
             methodnum = len(x['methods'])
@@ -295,6 +297,7 @@ class SumDataset(data.Dataset):
             for i in range(methodnum):
                 nodes.append('Method')
                 modi.append(x['modification'][i])
+                ch.append(x['churn'][i])
                 if len(rrdict[i].split(":")) > 1:
                     tokens = ".".join(rrdict[i].split(":")[0].split('.')[-2:] + [rrdict[i].split(":")[1]]) 
                 else:
@@ -574,6 +577,7 @@ class SumDataset(data.Dataset):
             #print(texta, textb)
             overlap = self.getoverlap(texta, textb)
             modi = self.normalize_list(modi)
+            ch = self.normalize_list(ch)
             '''for i in range(len(texta)):
                 for j in range(len(textb)):
                     t = 0
@@ -602,6 +606,7 @@ class SumDataset(data.Dataset):
             inputText.append(self.pad_seq(overlap, self.Nl_Len))
             #inputText.append(self.pad_list(text, self.Nl_Len, 10))
             Modification.append(self.pad_seq(modi, self.Code_Len))
+            Churn.append(self.pad_seq(ch, self.Code_Len))
             LineNodes.append(self.pad_seq(self.Get_Em(linenodes, self.Nl_Voc), self.Code_Len))
             LineTypes.append(self.pad_seq(linetypes, self.Code_Len))
             row = {}
@@ -622,7 +627,7 @@ class SumDataset(data.Dataset):
         print("error1: %d error2: %d"%(error1, error2))
 
         #assert(0)#assert(0)
-        batchs = [Nodes, Types, inputNlad, Res, inputText, LineNodes, LineTypes, LineMus, Modification]
+        batchs = [Nodes, Types, inputNlad, Res, inputText, LineNodes, LineTypes, LineMus, Modification, Churn]
         self.data = batchs
         open(self.proj + "data.pkl", "wb").write(pickle.dumps(batchs, protocol=4))
         #open('nl_voc.pkl', 'wb').write(pickle.dumps(self.Nl_Voc))
