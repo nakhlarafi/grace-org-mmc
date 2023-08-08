@@ -229,6 +229,17 @@ class SumDataset(data.Dataset):
                 print(codetoken, nltoken)
                 exit(0)
         return ans
+    
+    def normalize_list(self, input_list):
+        min_val = min(input_list)
+        max_val = max(input_list)
+
+        # avoid division by zero
+        if min_val == max_val:
+            return [1 for _ in input_list]
+
+        return [(i - min_val) / (max_val - min_val) for i in input_list]
+
     def preProcessData(self, dataFile):
         path_stacktrace = os.path.join('../FLocalization/stacktrace', self.proj)    
         lines = pickle.load(dataFile)#dataFile.readlines()
@@ -562,6 +573,7 @@ class SumDataset(data.Dataset):
                 nladval.append(1)'''
             #print(texta, textb)
             overlap = self.getoverlap(texta, textb)
+            modi = self.normalize_list(modi)
             '''for i in range(len(texta)):
                 for j in range(len(textb)):
                     t = 0
