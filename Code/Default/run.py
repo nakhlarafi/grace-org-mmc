@@ -143,7 +143,7 @@ def train(t = 5, p='Math'):
                 test_end_time = time.time()  # Testing time ends here
                 total_test_time = test_end_time - test_start_time
                 cumulative_test_time += total_test_time
-                print(f'Total testing time for epoch {epoch}: {total_test_time} seconds')
+                # print(f'Total testing time for epoch {epoch}: {total_test_time} seconds')
                 each_epoch_pred[epoch] = lst
                 each_epoch_pred[str(epoch)+'_pred'] = score_dict
                 score = score2[0]
@@ -173,7 +173,9 @@ def train(t = 5, p='Math'):
     train_end_time = time.time()  # Training time ends here
     total_train_time = train_end_time - train_start_time
 
-    print(f"TRAIN_TIME: {total_train_time}, TEST_TIME: {cumulative_test_time}")
+    total_train_time = train_end_time - train_start_time
+    print(f"TIMING_INFO: Training Time: {total_train_time}, Testing Time: {cumulative_test_time}")
+
     return brest, bans, batchn, each_epoch_pred
 
 
