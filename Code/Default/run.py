@@ -5,6 +5,7 @@ import os
 from tqdm import tqdm
 from Model import *
 import numpy as np
+import time
 #from annoy import AnnoyIndex
 from nltk import word_tokenize
 import pickle
