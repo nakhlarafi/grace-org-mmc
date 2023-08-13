@@ -12,6 +12,10 @@ totalnum = len(card) * singlenum
 lr = 1e-2
 seed = 0
 batch_size = 60
+
+# Starting the outer loop timing
+outer_start_time = time.time()
+
 for i in tqdm(range(int(len(lst) / totalnum) + 1)):
     jobs = []
     for j in range(totalnum):
@@ -23,6 +27,10 @@ for i in tqdm(range(int(len(lst) / totalnum) + 1)):
         time.sleep(10)
     for p in jobs:
         p.wait()
+
+# Ending the outer loop timing
+outer_end_time = time.time()
+
 p = subprocess.Popen("python3 sum.py %s %d %f %d"%(project, seed, lr, batch_size), shell=True)
 p.wait()
 subprocess.Popen("python3 watch.py %s %d %f %d"%(project, seed, lr, batch_size),shell=True)            
