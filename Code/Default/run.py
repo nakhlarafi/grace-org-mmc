@@ -173,8 +173,7 @@ def train(t = 5, p='Math'):
     train_end_time = time.time()  # Training time ends here
     total_train_time = train_end_time - train_start_time
 
-    print(f'Total training time: {total_train_time} seconds')
-    print(f'Cumulative testing time across all epochs: {cumulative_test_time} seconds')
+    print(f"TRAIN_TIME: {total_train_time}, TEST_TIME: {cumulative_test_time}")
     return brest, bans, batchn, each_epoch_pred
 
 
