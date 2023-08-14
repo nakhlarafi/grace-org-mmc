@@ -20,8 +20,8 @@ class dotdict(dict):
     def __getattr__(self, name):
         return self[name]
 
-NlLen_map = {"Time":3800, "Math":3000, "Lang":350, "Chart": 2350, "Mockito":1370, "Codec":160}
-CodeLen_map = {"Time":550, "Math":1000, "Lang":350, "Chart":5250, "Mockito":280, "Codec":190}
+NlLen_map = {"Time":3800, "Math":3000, "Lang":350, "Chart": 2350, "Mockito":1370, "Codec":200}
+CodeLen_map = {"Time":550, "Math":1000, "Lang":350, "Chart":5250, "Mockito":280, "Codec":200}
 args = dotdict({
     'NlLen':NlLen_map[sys.argv[2]],
     'CodeLen':CodeLen_map[sys.argv[2]],
