@@ -25,13 +25,13 @@ for i in tqdm(range(int(len(lst) / totalnum) + 1)):
         time.sleep(10)
     for p in jobs:
         p.wait()
-        stdout, _ = p.communicate()
-        stdout = stdout.decode('utf-8').strip()
-        timing_info = re.search(r"TIMING_INFO: Training Time: (\d+.\d+), Testing Time: (\d+.\d+)", stdout)
-        if timing_info:
-            train_time, test_time = map(float, timing_info.groups())
-            total_training_time += train_time
-            total_testing_time += test_time
+        # stdout, _ = p.communicate()
+        # stdout = stdout.decode('utf-8').strip()
+        # timing_info = re.search(r"TIMING_INFO: Training Time: (\d+.\d+), Testing Time: (\d+.\d+)", stdout)
+        # if timing_info:
+        #     train_time, test_time = map(float, timing_info.groups())
+        #     total_training_time += train_time
+        #     total_testing_time += test_time
 
 
 
@@ -39,5 +39,5 @@ p = subprocess.Popen("python3 sum.py %s %d %f %d"%(project, seed, lr, batch_size
 p.wait()
 subprocess.Popen("python3 watch.py %s %d %f %d"%(project, seed, lr, batch_size),shell=True)       
 
-print(f"The overall training time is {total_training_time} seconds.")
-print(f"The overall testing time is {total_testing_time} seconds.")
+# print(f"The overall training time is {total_training_time} seconds.")
+# print(f"The overall testing time is {total_testing_time} seconds.")
