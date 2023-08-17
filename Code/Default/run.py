@@ -21,7 +21,7 @@ class dotdict(dict):
         return self[name]
 
 NlLen_map = {"Time":3800, "Math":3000, "Lang":350, "Chart": 2350, "Mockito":1370, "Codec":160, "Compress":450, "Gson":900, "Cli":500}
-CodeLen_map = {"Time":550, "Math":1000, "Lang":350, "Chart":5250, "Mockito":280, "Codec":190, "Compress":1150, "Gson":350, "Cli":300}
+CodeLen_map = {"Time":550, "Math":1000, "Lang":350, "Chart":5250, "Mockito":280, "Codec":190, "Compress":1150, "Gson":350, "Cli":500}
 args = dotdict({
     'NlLen':NlLen_map[sys.argv[2]],
     'CodeLen':CodeLen_map[sys.argv[2]],
