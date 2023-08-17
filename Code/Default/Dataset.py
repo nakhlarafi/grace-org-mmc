@@ -580,7 +580,7 @@ class SumDataset(data.Dataset):
                 nladval.append(1)'''
             #print(texta, textb)
             overlap = self.getoverlap(texta, textb)
-            modi = self.normalize_list(modi)
+            # modi = self.normalize_list(modi)
             ch = self.normalize_list(ch)
             '''for i in range(len(texta)):
                 for j in range(len(textb)):
