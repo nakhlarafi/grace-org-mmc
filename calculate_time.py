@@ -7,6 +7,7 @@ testing_times = []
 
 pp = sys.argv[1]
 
+
 # Read the timing data from the file
 with open(f'{pp}_timing_data.txt', 'r') as f:
     lines = f.readlines()
