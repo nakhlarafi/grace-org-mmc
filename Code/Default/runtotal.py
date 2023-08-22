@@ -4,6 +4,7 @@ import time
 import os, sys
 import pickle
 project = sys.argv[1]
+pp = sys.argv[1]
 card = [0]
 lst = list(range(len(pickle.load(open(project + '.pkl', 'rb')))))
 singlenums = {'Time':5, 'Math':2, "Lang":10, "Chart":3, "Mockito":4, "Closure":1, "Codec":1, 'Compress':1, 'Gson':1, 'Cli':2, 'Jsoup':1, 'Csv':1}
@@ -37,7 +38,7 @@ training_times = []
 testing_times = []
 
 # Read the timing data from the file
-with open('timing_data.txt', 'r') as f:
+with open(f'{pp}_timing_data.txt', 'r') as f:
     lines = f.readlines()
 
     for line in lines:

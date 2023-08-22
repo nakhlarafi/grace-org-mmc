@@ -175,7 +175,7 @@ def train(t = 5, p='Math'):
 
     total_train_time = train_end_time - train_start_time
     print(f"TIMING_INFO: Training Time: {total_train_time}, Testing Time: {cumulative_test_time}")
-    with open('timing_data.txt', 'a') as f:  # 'a' mode is for appending to the file
+    with open(f'{p}_timing_data.txt', 'a') as f:  # 'a' mode is for appending to the file
         f.write(f"TIMING_INFO: Training Time: {total_train_time}, Testing Time: {cumulative_test_time}\n")
 
     return brest, bans, batchn, each_epoch_pred
