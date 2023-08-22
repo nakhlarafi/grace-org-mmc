@@ -25,13 +25,6 @@ for i in tqdm(range(int(len(lst) / totalnum) + 1)):
         time.sleep(10)
     for p in jobs:
         p.wait()
-        # stdout, _ = p.communicate()
-        # stdout = stdout.decode('utf-8').strip()
-        # timing_info = re.search(r"TIMING_INFO: Training Time: (\d+.\d+), Testing Time: (\d+.\d+)", stdout)
-        # if timing_info:
-        #     train_time, test_time = map(float, timing_info.groups())
-        #     total_training_time += train_time
-        #     total_testing_time += test_time
 
 
 
@@ -39,5 +32,23 @@ p = subprocess.Popen("python3 sum.py %s %d %f %d"%(project, seed, lr, batch_size
 p.wait()
 subprocess.Popen("python3 watch.py %s %d %f %d"%(project, seed, lr, batch_size),shell=True)       
 
-# print(f"The overall training time is {total_training_time} seconds.")
-# print(f"The overall testing time is {total_testing_time} seconds.")
+# After all subprocesses are complete
+training_times = []
+testing_times = []
+
+# Read the timing data from the file
+with open('timing_data.txt', 'r') as f:
+    lines = f.readlines()
+
+    for line in lines:
+        match = re.search(r"TIMING_INFO: Training Time: (\d+.\d+), Testing Time: (\d+.\d+)", line)
+        if match:
+            training_times.append(float(match.group(1)))
+            testing_times.append(float(match.group(2)))
+
+# Calculate the total training and testing time
+total_training_time = sum(training_times)
+total_testing_time = sum(testing_times)
+
+print(f"The overall training time is {total_training_time} seconds.")
+print(f"The overall testing time is {total_testing_time} seconds.")
