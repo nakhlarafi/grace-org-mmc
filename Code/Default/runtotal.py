@@ -6,6 +6,11 @@ import re
 import pickle
 project = sys.argv[1]
 pp = sys.argv[1]
+
+# Check if the file exists, if yes, delete it
+if os.path.exists(f'{pp}_timing_data.txt'):
+    os.remove(f'{pp}_timing_data.txt')
+
 card = [0]
 lst = list(range(len(pickle.load(open(project + '.pkl', 'rb')))))
 singlenums = {'Time':5, 'Math':2, "Lang":10, "Chart":3, "Mockito":4, "Closure":1, "Codec":1, 'Compress':1, 'Gson':1, 'Cli':2, 'Jsoup':1, 'Csv':1, 'JacksonCore':1}
@@ -33,7 +38,7 @@ for i in tqdm(range(int(len(lst) / totalnum) + 1)):
 p = subprocess.Popen("python3 sum.py %s %d %f %d"%(project, seed, lr, batch_size), shell=True)
 p.wait()
 subprocess.Popen("python3 watch.py %s %d %f %d"%(project, seed, lr, batch_size),shell=True)       
-
+p.wait()
 # After all subprocesses are complete
 training_times = []
 testing_times = []
