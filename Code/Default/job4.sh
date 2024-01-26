@@ -2,13 +2,13 @@
 
 
 MID=$1
-echo "${MID}"
-python run_test.py Cli ${MID}
-python top_k.py Cli ${MID}
+# echo "${MID}"
+# python run_test.py Cli ${MID}
+# python top_k.py Cli ${MID}
 
-echo "${MID}"
-python run_test.py Codec ${MID}
-python top_k.py Codec ${MID}
+# echo "${MID}"
+# python run_test.py Codec ${MID}
+# python top_k.py Codec ${MID}
 
 echo "${MID}"
 python run_test.py Compress ${MID}
