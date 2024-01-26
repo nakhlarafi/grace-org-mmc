@@ -27,15 +27,8 @@ class dotdict(dict):
 # JacksonCore 289x144
     
 # For depGraph
-NlLen_map = {"Time":3900, "Math":3000, "Lang":500, "Chart": 2350, "Mockito":1400, "Closure":5000, "Codec":500, "Compress":1000, "Gson":1000, "Cli":1000, "Jsoup":2000, "Csv":500, "JacksonCore":1000, 'JacksonXml':500, 'Collections':500}
-CodeLen_map = {"Time":600, "Math":1000, "Lang":500, "Chart":5250, "Mockito":300, "Closure":10000, "Codec":500, "Compress":1500, "Gson":1000, "Cli":1000, "Jsoup":2000, "Csv":500, "JacksonCore":1000, 'JacksonXml':500, 'Collections':500}
-
-#For Grace
-# NlLen_map = {"Time":3900, "Math":4500, "Lang":500, "Chart": 2350, "Mockito":1780, "Closure":5000, "Codec":500, "Compress":1000, "Gson":1000, "Cli":1000, "Jsoup":2000, "Csv":500, "JacksonCore":1000, 'JacksonXml':500, 'Collections':500}
-# CodeLen_map = {"Time":1300, "Math":2700, "Lang":500, "Chart":5250, "Mockito":1176, "Closure":10000, "Codec":500, "Compress":1500, "Gson":1000, "Cli":1000, "Jsoup":2000, "Csv":500, "JacksonCore":1000, 'JacksonXml':500, 'Collections':500}
-    
-# NlLen_map = {"Time":3900, "Math":4500, "Lang":280, "Chart": 2350, "Mockito":1780, "unknown":2200}
-# CodeLen_map = {"Time":1300, "Math":2700, "Lang":300, "Chart":5250, "Mockito":1176, "unknown":2800}
+NlLen_map = {"Time":3900, "Math":3000, "Lang":350, "Chart": 2350, "Mockito":1370, "Codec":160, "Compress":1000, "Gson":1500, "Cli":1000, "Jsoup":2000, "Csv":1000, "JacksonCore":1000, 'JacksonXml':500, 'Collections':500}
+CodeLen_map = {"Time":1300, "Math":1000, "Lang":350, "Chart":5250, "Mockito":280, "Codec":190, "Compress":1500, "Gson":1500, "Cli":1000, "Jsoup":2000, "Csv":1000, "JacksonCore":1000, 'JacksonXml':500, 'Collections':500}
 
 args = dotdict({
     'NlLen':NlLen_map[sys.argv[2]],
