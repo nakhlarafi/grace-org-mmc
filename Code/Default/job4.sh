@@ -10,9 +10,9 @@ MID=$1
 # python run_test.py Codec ${MID}
 # python top_k.py Codec ${MID}
 
-echo "${MID}"
-python run_test.py Compress ${MID}
-python top_k.py Compress ${MID}
+# echo "${MID}"
+# python run_test.py Compress ${MID}
+# python top_k.py Compress ${MID}
 
 echo "${MID}"
 python run_test.py Csv ${MID}
