@@ -9,6 +9,7 @@ python runtotal.py Csv
 python runtotal.py JacksonCore
 python runtotal.py JacksonXml
 python runtotal.py Jsoup
+python runtotal.py Gson
 python runtotal.py Lang
 python runtotal.py Math
 python runtotal.py Mockito
