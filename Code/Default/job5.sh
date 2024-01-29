@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Array of MIDs
-MIDs=("Codec")
+MIDs=("Cli" "Collections" "Compress" "Csv" "Gson" "JacksonCore" "JacksonXml" "Jsoup" "Math" "Mockito" "Time")
 
 # List of project names
 # projects=("Cli" "Codec" "Collections" "Compress" "Csv" "Gson" "JacksonCore" "JacksonXml" "Jsoup" "Lang" "Math" "Mockito" "Time")
-projects=("Cli" "Collections" "Compress" "Csv" "Gson" "JacksonCore" "JacksonXml" "Jsoup" "Lang" "Math" "Mockito" "Time")
+projects=("Codec")
 
 # Loop through each MID
 for MID in "${MIDs[@]}"; do
